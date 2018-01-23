@@ -1,11 +1,27 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+#include <boost/filesystem.hpp>
+
 
 using namespace std;
+namespace fs = boost::filesystem;
 
 int main() {
-    char* filename = "hexr.exe";
+
+
+    fs::path path = ".";
+
+    fs::directory_iterator end;
+
+    for (fs::directory_iterator iter(path); iter != end; ++iter) {
+        if (is_regular_file(iter->path())) {
+        string file_name = iter->path().filename().string();
+
+        cout << file_name << endl;
+
+
+    char* filename = &file_name[0u];
     string res = "hexdump_" + string(filename) + ".txt";
     char* r_filename = &res[0u];
     unsigned long addr = 0;
@@ -44,6 +60,8 @@ int main() {
 
         result << "\n";
         addr += 16;
+        }
+    }
     }
     return 0;
 }
