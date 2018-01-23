@@ -18,11 +18,11 @@ int main() {
         if (is_regular_file(iter->path())) {
         string file_name = iter->path().filename().string();
 
-        cout << file_name << endl;
 
 
     char* filename = &file_name[0u];
     string res = "hexdump_" + string(filename) + ".txt";
+    cout << file_name + " -> " + res << endl;
     char* r_filename = &res[0u];
     unsigned long addr = 0;
     fstream file(filename, fstream::binary | fstream::in);
@@ -62,6 +62,7 @@ int main() {
         addr += 16;
         }
     }
+    cout << "done" << endl;
     }
     return 0;
 }
