@@ -18,8 +18,6 @@ int main() {
         if (is_regular_file(iter->path())) {
         string file_name = iter->path().filename().string();
 
-
-
     char* filename = &file_name[0u];
     string res = "hexdump_" + string(filename) + ".txt";
     cout << file_name + " -> " + res << endl;
