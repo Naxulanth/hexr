@@ -35,7 +35,7 @@ int main() {
 
         for (rd = 0; rd < 16 && file.get(buf[rd]); rd++); // fill buffer
 
-        if (rd == 0) break; // end if there are nothing to get in the file
+        if (rd == 0) break; // end if there is nothing to get in the file
 
         result << hex << setfill('0') << setw(8) << addr; // print address in 8 char form
 
